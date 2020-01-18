@@ -6,6 +6,10 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import {MatCardModule} from '@angular/material/card';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 
@@ -15,7 +19,11 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     ModelModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule,
+    MatMenuModule,
+    MatChipsModule,
+    MatBadgeModule
   ]
 })
 export class StoreModule { }

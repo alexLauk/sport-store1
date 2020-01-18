@@ -47,6 +47,23 @@
         "address": "ghjghj"
       },
       "id": 2
+    },
+    {
+      "lines": [
+        {
+          "name": "Thinking Cap",
+          "quantity": 1,
+          "price": 16,
+          "subtotal": 16,
+          "id": 6
+        }
+      ],
+      "total": 16,
+      "client": {
+        "name": "alex",
+        "address": "qwda"
+      },
+      "id": 3
     }
   ]
 }

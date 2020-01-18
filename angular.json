@@ -28,10 +28,13 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
-              "node_modules/bootstrap/scss/bootstrap.scss"
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "node_modules/mdbootstrap/scss/mdb-lite-free.scss",
+              "node_modules/mdbootstrap/scss/mdb-free.scss"
             ],
-            "scripts": []
+            "scripts": ["node_modules/mdbootstrap/js/mdb.js"]
           },
           "configurations": {
             "production": {
@@ -94,6 +97,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -125,6 +129,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "app"
 }

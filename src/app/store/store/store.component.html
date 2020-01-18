@@ -1,0 +1,82 @@
+<div class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand">SPORT STORE</a>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2 p-1">
+      <button (click)="getCategory(null)" class="btn btn-block btn-outline-primary">
+      Home
+      </button>
+
+      <ng-container *ngFor="let item of categories">
+        <button (click)="getCategory(item)" class="btn btn-block btn-outline-primary">
+          {{item}}
+          </button>
+      </ng-container>
+
+      <button routerLink="/login" class="btn btn-block btn-danger mt-3">
+        Admin
+      </button>
+
+    </div>
+
+    <div class="col-10 p-1">
+      <div class="row">
+        <div  *ngFor="let product of getProduct()"
+              class="col-lg-3 col-md-4 col-6 mt-2">
+              <!-- Card -->
+            <div class="card">
+
+              <!-- Card image -->
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+
+              <!-- Card content -->
+              <div class="card-body">
+
+                <!-- Title -->
+                <h4 class="card-title"><a>Card title</a></h4>
+                <!-- Text -->
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <!-- Button -->
+                <a href="#" class="btn btn-primary">Button</a>
+
+              </div>
+
+            </div>
+            <!-- Card -->
+          <!-- <mat-card
+                class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{product.name}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{product.description}}</p>
+              <span class="float-right badge badge-pill badge-primary">  {{product.price | currency }}</span>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
+          </mat-card> -->
+        </div>
+      </div>
+
+
+      <!-- <ng-container *ngFor="let product of getProduct()">
+      <div class="card card-outline-primary">
+        <h4 class="card-header">
+          {{product.name}}
+          <span class="float-right badge badge-pill badge-primary">  {{product.price}}$</span>
+        </h4>
+        <div class="card-text p-1">
+          {{product.description}}
+          <button (click)="addToCart(product)" class="btn btn-success btn-sm float-right">
+            Add to card
+          </button>
+        </div>
+      </div>
+    </ng-container> -->
+    </div>
+  </div>
+</div>
