@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Product, DataSourceService } from '../../model/data-source.service';
+import { Product, DataSourceService } from 'src/app/model/data-source.service';
 import { Router } from '@angular/router';
 import { CartService } from '../cart/cart.service';
 
 @Component({
-  selector: 'app-store',
-  templateUrl: './store.component.html',
-  styleUrls: ['./store.component.scss']
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss']
 })
+export class MainComponent implements OnInit {
 
-export class StoreComponent implements OnInit {
   productList: Product[] = [];
   categories: Set < string > | string[] = [];
   currentCategory: null;
@@ -28,9 +28,9 @@ export class StoreComponent implements OnInit {
       this.categories = new Set(temp);
     });
   }
-  
-  getCategory(n: any) {
-    this.currentCategory = n;
+
+  getCategory(category: any) {
+    this.currentCategory = category;
   }
 
   getProduct(): Product[] {

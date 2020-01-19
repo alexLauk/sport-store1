@@ -32,7 +32,8 @@
               "src/styles.scss",
               "node_modules/bootstrap/scss/bootstrap.scss",
               "node_modules/mdbootstrap/scss/mdb-lite-free.scss",
-              "node_modules/mdbootstrap/scss/mdb-free.scss"
+              "node_modules/mdbootstrap/scss/mdb-free.scss",
+              "node_modules/mdbootstrap/css/mdb.css"
             ],
             "scripts": ["node_modules/mdbootstrap/js/mdb.js"]
           },

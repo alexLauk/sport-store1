@@ -5,7 +5,7 @@ import { ProductsComponent } from './products/products.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrdersComponent } from './orders/orders.component';
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
