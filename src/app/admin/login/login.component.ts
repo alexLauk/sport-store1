@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
-import { LoginModalComponent } from 'src/app/shared/components/login-modal/login-modal.component';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +13,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router,
-    public dialog: MatDialog
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -39,16 +36,6 @@ export class LoginComponent implements OnInit {
         alert('wrong password');
       }
     }
-  }
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(LoginModalComponent, {
-      width: '250px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
   }
 
 }

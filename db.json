@@ -1,18 +1,53 @@
 {
   "products": [
     {
+      "id": 11,
+      "name": "Makassar",
+      "category": "Skiing",
+      "description": "HANDMADE IN GERMANY",
+      "price": 279
+    },
+    {
+      "id": 12,
+      "name": "Blizzard",
+      "category": "Skiing",
+      "description": "Blast off to the next with dynamic abandonment like never before.",
+      "price": 430
+    },
+    {
+      "id": 13,
+      "name": "Wreckreate",
+      "category": "Skiing",
+      "description": "Refined to perfection",
+      "price": 560
+    },
+    {
+      "id": 21,
+      "name": "Atomic",
+      "category": "Snowboard",
+      "description": "Atomic Backland UL 78",
+      "price": 1600
+    },
+    {
+      "id": 22,
+      "name": "Atomic Blacland",
+      "category": "Snowboard",
+      "description": "Atomic Backland 107",
+      "price": 2900
+    },
+    {
+      "id": 23,
+      "name": "Thinking Cap",
+      "category": "Snowboard",
+      "description": "Improve brain efficiency by 75%",
+      "price": 1099
+    },
+    {
       "id": 6,
       "name": "Thinking Cap",
       "category": "Chess",
       "description": "Improve brain efficiency by 75%",
-      "price": 16
-    },
-    {
-      "id": 8,
-      "name": "Human Chess Board",
-      "category": "Chess",
-      "description": "A fun game for the family",
-      "price": 75
+      "price": 1478
     },
     {
       "id": 9,

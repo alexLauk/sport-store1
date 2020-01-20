@@ -1,18 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatDialogModule } from '@angular/material/dialog';
-import { LoginModalComponent } from './components/login-modal/login-modal.component';
 
 
 
 @NgModule({
-  declarations: [LoginModalComponent],
+  declarations: [],
   imports: [
-    CommonModule,
-    MatDialogModule
+    CommonModule
   ],
-  entryComponents: [
-    LoginModalComponent
-  ]
+  entryComponents: []
 })
 export class SharedModule { }
