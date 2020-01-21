@@ -1,0 +1,33 @@
+<div class="container mt-3">
+    <div class="row justify-content-md-center">
+      <div class="col-mm-auto col-lg-6">
+          <h5 class="card-header mdb-color lighten-3 white-text text-center py-4">
+              <strong>Edit product</strong>
+            </h5>
+        <!-- Material form group -->
+          <div *ngIf="display" class="alert alert-success" role="alert">
+              Product has been edited!
+            </div>
+          <form [formGroup]="form">
+              <!-- Material input -->
+              <div class="md-form form-group mt-5">
+                <input formControlName="name" type="text" class="form-control" placeholder="Product name">
+              </div>
+              <!-- Material input -->
+              <div class="md-form form-group mt-5">
+                <input formControlName="category" type="text" class="form-control"  placeholder="Category name">
+              </div>
+              <!-- Material input -->
+              <div class="md-form form-group mt-5">
+                  <input formControlName="description" type="text" class="form-control"  placeholder="Description">
+              </div>
+              <!-- Material input -->
+              <div class="md-form form-group mt-5">
+                  <input formControlName="price" type="number" class="form-control"  placeholder="Product price">
+              </div>
+              <button class="btn btn-primary btn-block my-4 waves-effect" type="submit" (click)="editProduct()" >Edit Product</button>
+            </form>
+            <!-- Material form group -->
+      </div>
+    </div>
+  </div>

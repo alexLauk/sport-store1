@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataSourceService, Product } from 'src/app/model/data-source.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -8,7 +9,7 @@ import { DataSourceService, Product } from 'src/app/model/data-source.service';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private ds:  DataSourceService ) { }
+  constructor(private ds:  DataSourceService, private router: Router ) { }
   productList: Product[] = [];
 
   ngOnInit() {
@@ -16,12 +17,16 @@ export class ProductsComponent implements OnInit {
       this.productList = products;
      });
   }
-  
-  del(id:number) {
+
+  del(id: number) {
     this.ds.deleteProduct(id).subscribe(() => {
       this.ds.getProduct().subscribe((products: Product[]) => {
         this.productList = products;
        });
      });
+  }
+
+  edit(id) {
+    this.router.navigate(['/edit', id]);
   }
 }

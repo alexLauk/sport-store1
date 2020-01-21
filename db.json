@@ -1,13 +1,6 @@
 {
   "products": [
     {
-      "id": 11,
-      "name": "Makassar",
-      "category": "Skiing",
-      "description": "HANDMADE IN GERMANY",
-      "price": 279
-    },
-    {
       "id": 12,
       "name": "Blizzard",
       "category": "Skiing",

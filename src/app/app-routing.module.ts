@@ -6,6 +6,8 @@ import { LoginComponent } from './admin/login/login.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { AuthGuard } from './admin/auth.guard';
 import { MainComponent } from './store/main/main.component';
+import { AddProductComponent } from './admin/add-product/add-product.component';
+import { EditProductComponent } from './admin/edit-product/edit-product.component';
 
 
 
@@ -15,6 +17,8 @@ const routes: Routes = [
   {path: 'cart', component: CartComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'add', component: AddProductComponent},
+  {path: 'edit/:id', component: EditProductComponent},
   {path: 'products', component: ProductsComponent, canActivate: [AuthGuard]},
   {path: '**', redirectTo: '/'},
 
