@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { OrdersComponent } from './orders/orders.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -14,7 +15,9 @@ import { EditProductComponent } from './edit-product/edit-product.component';
   imports: [
     ReactiveFormsModule,
     RouterModule,
-    CommonModule
-  ]
+    CommonModule,
+    SharedModule
+  ],
+  providers: []
 })
 export class AdminModule { }
