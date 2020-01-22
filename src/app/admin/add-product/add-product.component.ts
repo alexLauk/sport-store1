@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarComponent } from 'src/app/shared/snack-bar/snack-bar.component';
 
+
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -13,8 +14,6 @@ import { SnackBarComponent } from 'src/app/shared/snack-bar/snack-bar.component'
 export class AddProductComponent implements OnInit {
   product: Product[] = [];
   form: FormGroup;
-  display: boolean;
-  durationInSeconds = 5;
 
   constructor(
     private ds: DataSourceService,
@@ -23,7 +22,6 @@ export class AddProductComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.display = false;
     this.form = new FormGroup ({
       name: new FormControl('', Validators.required),
       category: new FormControl('', Validators.required),
@@ -43,19 +41,53 @@ export class AddProductComponent implements OnInit {
       this.ds.addProduct(product).subscribe(() => {
 
         this.form.reset();
-
-        this.snackBar.openFromComponent(SnackBarComponent, {
-          duration: this.durationInSeconds * 1000,
+        this.router.navigate(['/products']);
+        this.snackBar.openFromComponent(SnackBarComponent,{
+          announcementMessage: 'Product has been added',
+          duration: 5000,
+          panelClass: [
+            'default-color',
+            'text-white'
+          ],
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
         });
+        /* this.openSnackBar(
+          'Product has been added',
+          5000,
+          'bottom',
+          'center',
+          [
+            'default-color',
+            'text-white'
+          ]
+        ); */
+      }, () => {
 
-        /* this.display = true;
-
-        setTimeout(() => {
-          this.router.navigate(['/store']);
-        }, 2000);
-      }, () => { */
-        this.display = false;
+        this.form.reset();
+        this.openSnackBar(
+          'Product has not been added',
+          5000,
+          'bottom',
+          'center',
+          [
+            'danger-color',
+            'text-white'
+          ]
+        );
         });
      }
     }
+
+    openSnackBar(message, duration, verticalPosition, horizontalPosition, panelClass ) {
+      this.snackBar.open(message, '',
+        {
+          duration,
+          verticalPosition,
+          horizontalPosition,
+          panelClass
+        }
+      );
+    }
+
 }
