@@ -11,9 +11,14 @@
       <button routerLink="/login" class="btn btn-block btn-danger">
         Logout
       </button>
-      <button routerLink="/add" class="btn btn-block btn-primary">
+
+      <button (click)="openDialogAddProduct()" class="btn btn-block btn-primary">
         Add product
       </button>
+
+      <!-- <button routerLink="/add" class="btn btn-block btn-primary">
+        Add product
+      </button> -->
 
     </div>
   </div>
@@ -39,7 +44,7 @@
               <td>{{product.price}}</td>
               <td class="text-center">
                 <button class="btn btn-sm btn-danger" (click)="del(product.id)">Remove</button>
-                <button class="btn btn-sm btn-primary" (click)="edit(product.id)">Edit</button>
+                <button class="btn btn-sm btn-primary" (click)="openDialogEditProduct(product.id)">Edit</button>
               </td>
             </tr>
         </ng-container>

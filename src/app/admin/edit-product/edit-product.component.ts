@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Product, DataSourceService } from 'src/app/model/data-source.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-product',
@@ -12,35 +14,38 @@ export class EditProductComponent implements OnInit {
   product: Product[] = [];
   form: FormGroup;
   display: boolean;
-  product1;
+  productEdit: Product;
+
+
 
   constructor(
     private ds: DataSourceService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private snackBar: MatSnackBar,
+    public dialogRef: MatDialogRef<EditProductComponent>,
+    @Inject(MAT_DIALOG_DATA) public id: number
     ) {
-        this.route.params.subscribe((p) => {
-            const id = +p["id"];
+       /*  this.route.params.subscribe((p) => {
+            const id = +p["id"]; */
 
-            this.ds.getProductById(id).subscribe((product) => {
-                this.product1 = product;
+            this.ds.getProductById(+id).subscribe((product) => {
+                this.productEdit = product;
                 this.form = new FormGroup ({
-                  name: new FormControl(this.product1.name, Validators.required),
-                  category: new FormControl(this.product1.category, Validators.required),
-                  description: new FormControl(this.product1.description, Validators.required),
-                  price: new FormControl(this.product1.price, Validators.required)
+                  name: new FormControl(this.productEdit.name, Validators.required),
+                  category: new FormControl(this.productEdit.category, Validators.required),
+                  description: new FormControl(this.productEdit.description, Validators.required),
+                  price: new FormControl(this.productEdit.price, Validators.required)
                 });
             })
-        })
+        // })
     }
 
   ngOnInit() {
-
   }
 
-
   editProduct() {
-    this.display = false;
+
     if (this.form.valid) {
       const product = new Product(
         this.form.get('name').value,
@@ -51,14 +56,32 @@ export class EditProductComponent implements OnInit {
       this.ds.editProduct(product).subscribe(() => {
 
         this.form.reset();
+        this.dialogRef.close();
 
-        this.display = true;
-
-        setTimeout(() => {
+        /* setTimeout(() => {
           this.router.navigate(['/admin']);
-        }, 2000);
+        }, 2000); */
+
+        this.snackBar.open('Product has been edited', null,
+        {
+          duration: 5000,
+          panelClass:  [
+            'default-color',
+            'text-white'
+          ]
+        });
+
+
       }, () => {
-        this.display = false;
+          this.form.reset();
+          this.snackBar.open('Product has not been edited', null,
+            {
+              duration: 5000,
+              panelClass:  [
+                'danger-color',
+                'text-white'
+              ]
+            });
         });
      }
     }

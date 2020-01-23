@@ -1,52 +1,65 @@
-<div class="container mt-3">
+<!-- <div class="container mt-3">
   <div class="row justify-content-md-center">
     <div class="col-mm-auto col-lg-6">
         <h5 class="card-header mdb-color lighten-3 white-text text-center py-4">
             <strong>Add new product</strong>
           </h5>
-      <!-- Material form group -->
-        <!-- <div *ngIf="display" class="alert alert-success" role="alert">
-            Product has been added!
-          </div> -->
-        <form [formGroup]="form">
-            <!-- Material input -->
+
             <div class="md-form form-group mt-5">
-              <input formControlName="name" type="text" class="form-control" placeholder="Product name">
-              <label for="formGroupExampleInputMD"></label>
+              <mat-form-field>
+                <input matInput [(ngModel)]="name" placeholder="Product Name">
+              </mat-form-field>
             </div>
-            <!-- Material input -->
+
             <div class="md-form form-group mt-5">
-              <input formControlName="category" type="text" class="form-control"  placeholder="Category name">
-              <label for="formGroupExampleInput2MD"></label>
+              <mat-form-field>
+                <input matInput [(ngModel)]="category" placeholder="Category Name">
+              </mat-form-field>
             </div>
-            <!-- Material input -->
+
             <div class="md-form form-group mt-5">
-                <input formControlName="description" type="text" class="form-control"  placeholder="Description">
-                <label for="formGroupExampleInput2MD"></label>
+              <mat-form-field>
+                <input matInput [(ngModel)]="description" placeholder="Description">
+              </mat-form-field>
             </div>
-            <!-- Material input -->
+
             <div class="md-form form-group mt-5">
-                <input formControlName="price" type="number" class="form-control"  placeholder="Product price">
-                <label for="formGroupExampleInput2MD"></label>
+              <mat-form-field>
+                <input matInput [(ngModel)]="price" placeholder="Product price">
+              </mat-form-field>
             </div>
             <button class="btn btn-primary btn-block my-4 waves-effect" type="submit" (click)="addProduct()" >Add Product</button>
-          </form>
-          <!-- Material form group -->
 
-
-
-
-      <!-- Material input -->
-      <!-- <div class="md-form">
-        <input formControlName="name" type="text" class="form-control">
-        <label for="name">Product name</label>
-        <input formControlName="category" type="text" class="form-control">
-        <label for="category">Category name</label>
-        <input formControlName="description" type="text" class="form-control">
-        <label for="description">Description</label>
-        <input formControlName="price" type="number" class="form-control">
-        <label for="price">price</label>
-      </div> -->
     </div>
   </div>
+</div> -->
+
+<div class="container mt-3">
+
+  <h5 class="card-header mdb-color lighten-3 white-text text-center py-4">
+    <strong>Add new product</strong>
+  </h5>
+
+  <form [formGroup]="form">
+    <div class="md-form form-group mt-5">
+      <input formControlName="name" type="text" class="form-control" placeholder="Product name">
+      <label for="formGroupExampleInputMD"></label>
+    </div>
+
+    <div class="md-form form-group mt-5">
+      <input formControlName="category" type="text" class="form-control"  placeholder="Category name">
+      <label for="formGroupExampleInput2MD"></label>
+    </div>
+
+    <div class="md-form form-group mt-5">
+        <input formControlName="description" type="text" class="form-control"  placeholder="Description">
+        <label for="formGroupExampleInput2MD"></label>
+    </div>
+
+    <div class="md-form form-group mt-5">
+        <input formControlName="price" type="number" class="form-control"  placeholder="Product price">
+        <label for="formGroupExampleInput2MD"></label>
+    </div>
+    <button class="btn btn-primary btn-block my-4 waves-effect" type="submit" (click)="addProduct()" >Add Product</button>
+  </form>
 </div>

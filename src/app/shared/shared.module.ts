@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SnackBarComponent } from './snack-bar/snack-bar.component';
+import { SucsesSnackBarComponent } from './snack-bar/sucses-snack-bar.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { ErrorSnackBarComponent } from './snack-bar/error-snack-bar.component';
 
 
 @NgModule({
-  declarations: [SnackBarComponent],
+  declarations: [ErrorSnackBarComponent, SucsesSnackBarComponent],
   imports: [
     CommonModule,
     MatSnackBarModule
   ],
   entryComponents: [
-    SnackBarComponent
+    ErrorSnackBarComponent,
+    SucsesSnackBarComponent
   ]
 })
 export class SharedModule { }

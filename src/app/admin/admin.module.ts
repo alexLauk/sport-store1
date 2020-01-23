@@ -8,6 +8,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { SharedModule } from '../shared/shared.module';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { SharedModule } from '../shared/shared.module';
     ReactiveFormsModule,
     RouterModule,
     CommonModule,
-    SharedModule
+    SharedModule,
+    MatDialogModule
   ],
   providers: []
 })

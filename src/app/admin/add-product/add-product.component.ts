@@ -3,8 +3,7 @@ import { DataSourceService, Product } from 'src/app/model/data-source.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SnackBarComponent } from 'src/app/shared/snack-bar/snack-bar.component';
-
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-product',
@@ -18,8 +17,10 @@ export class AddProductComponent implements OnInit {
   constructor(
     private ds: DataSourceService,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    public dialogRef: MatDialogRef<AddProductComponent>
     ) { }
+
 
   ngOnInit() {
     this.form = new FormGroup ({
@@ -41,53 +42,36 @@ export class AddProductComponent implements OnInit {
       this.ds.addProduct(product).subscribe(() => {
 
         this.form.reset();
-        this.router.navigate(['/products']);
-        this.snackBar.openFromComponent(SnackBarComponent,{
-          announcementMessage: 'Product has been added',
-          duration: 5000,
+        this.dialogRef.close();
+        /* this.router.navigate(['/products']); */
+
+        /* this.snackBar.openFromComponent(SucsesSnackBarComponent,{
           panelClass: [
             'default-color',
             'text-white'
           ],
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-        });
-        /* this.openSnackBar(
-          'Product has been added',
-          5000,
-          'bottom',
-          'center',
-          [
+          data: 'Product has been added'
+        }) */
+        this.snackBar.open('Product has been added', null,
+        {
+          duration: 5000,
+          panelClass:  [
             'default-color',
             'text-white'
           ]
-        ); */
+        });
       }, () => {
-
-        this.form.reset();
-        this.openSnackBar(
-          'Product has not been added',
-          5000,
-          'bottom',
-          'center',
-          [
-            'danger-color',
-            'text-white'
-          ]
-        );
+          this.form.reset();
+          this.snackBar.open('Product has not been added', null,
+            {
+              duration: 5000,
+              panelClass:  [
+                'danger-color',
+                'text-white'
+              ]
+            });
         });
      }
-    }
-
-    openSnackBar(message, duration, verticalPosition, horizontalPosition, panelClass ) {
-      this.snackBar.open(message, '',
-        {
-          duration,
-          verticalPosition,
-          horizontalPosition,
-          panelClass
-        }
-      );
     }
 
 }
