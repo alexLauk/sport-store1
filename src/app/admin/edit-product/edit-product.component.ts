@@ -13,10 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class EditProductComponent implements OnInit {
   product: Product[] = [];
   form: FormGroup;
-  display: boolean;
   productEdit: Product;
-
-
 
   constructor(
     private ds: DataSourceService,
@@ -29,7 +26,7 @@ export class EditProductComponent implements OnInit {
        /*  this.route.params.subscribe((p) => {
             const id = +p["id"]; */
 
-            this.ds.getProductById(+id).subscribe((product) => {
+            this.ds.getProductById(id).subscribe((product) => {
                 this.productEdit = product;
                 this.form = new FormGroup ({
                   name: new FormControl(this.productEdit.name, Validators.required),
@@ -42,6 +39,15 @@ export class EditProductComponent implements OnInit {
     }
 
   ngOnInit() {
+    /* this.ds.getProductById(this.id).subscribe((product) => {
+        this.productEdit = product;
+        this.form = new FormGroup ({
+          name: new FormControl(this.productEdit.name, Validators.required),
+          category: new FormControl(this.productEdit.category, Validators.required),
+          description: new FormControl(this.productEdit.description, Validators.required),
+          price: new FormControl(this.productEdit.price, Validators.required)
+        });
+    }) */
   }
 
   editProduct() {
@@ -51,8 +57,12 @@ export class EditProductComponent implements OnInit {
         this.form.get('name').value,
         this.form.get('category').value,
         this.form.get('description').value,
-        this.form.get('price').value
+        this.form.get('price').value,
+        this.id
       );
+
+      console.log(product);
+
       this.ds.editProduct(product).subscribe(() => {
 
         this.form.reset();
@@ -84,6 +94,10 @@ export class EditProductComponent implements OnInit {
             });
         });
      }
+    }
+
+    cancel(): void {
+      this.dialogRef.close();
     }
 
 }

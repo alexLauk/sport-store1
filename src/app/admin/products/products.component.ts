@@ -13,7 +13,7 @@ import { EditProductComponent } from '../edit-product/edit-product.component';
 export class ProductsComponent implements OnInit {
 
   constructor(
-    private ds:  DataSourceService,
+    private ds: DataSourceService,
     private router: Router,
     public dialog: MatDialog
     ) { }
@@ -39,15 +39,20 @@ export class ProductsComponent implements OnInit {
 
   openDialogAddProduct(): void {
     const addProductDialogRef = this.dialog.open(AddProductComponent, {
-      width: '550px',
-      height: '600px'
+      minWidth: '30rem',
+      minHeight: '30rem',
+      width: 'auto',
+      height: 'auto'
     });
+
+    addProductDialogRef.afterClosed().subscribe(() => {
+      this.ds.getProduct().subscribe((products: Product[]) => {
+        this.productList = products;
+       });
+    });
+
   }
 
-  /* AddProductDialogRef.afterClosed().subscribe(result => {
-    console.log('The dialog was closed');
-    this.animal = result;
-  }); */
 
 
   openDialogEditProduct(id): void {
@@ -55,6 +60,12 @@ export class ProductsComponent implements OnInit {
       width: '550px',
       height: '600px',
       data: id
+    });
+
+    editProductDialogRef.afterClosed().subscribe(() => {
+      this.ds.getProduct().subscribe((products: Product[]) => {
+        this.productList = products;
+       });
     });
   }
 }

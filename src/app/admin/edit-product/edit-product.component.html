@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container-fluid">
   <h5 class="card-header mdb-color lighten-3 white-text text-center py-4">
     <strong>Edit product</strong>
   </h5>
@@ -20,7 +20,10 @@
     <div class="md-form form-group mt-5">
         <input formControlName="price" type="number" class="form-control"  placeholder="Product price">
     </div>
-    <button class="btn btn-primary btn-block my-4 waves-effect" type="submit" (click)="editProduct()" >Edit Product</button>
+    <div class="d-flex justify-content-center mx-2">
+      <button class="btn btn-primary my-4 waves-effect btn-block" type="submit" (click)="editProduct()" >Edit</button>
+      <button class="btn btn-primary my-4 waves-effect btn-block"  (click)="cancel()" >Cancel</button>
+    </div>
   </form>
   <!-- Material form group -->
 </div>

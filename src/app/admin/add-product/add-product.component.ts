@@ -74,4 +74,8 @@ export class AddProductComponent implements OnInit {
      }
     }
 
+    cancel(): void {
+      this.dialogRef.close();
+    }
+
 }
